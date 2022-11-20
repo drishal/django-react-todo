@@ -1,0 +1,62 @@
+#+TITLE: Todo List with django and react 
+#+PROPERTY: header-args
+* Table of contents :toc:noexport:
+- [[#introduction][Introduction]]
+- [[#backend][Backend]]
+  - [[#backend-1][backend]]
+  - [[#todo][Todo]]
+- [[#frontend][Frontend]]
+- [[#docker][Docker]]
+- [[#okteto][Okteto]]
+- [[#screenshots][Screenshots]]
+  - [[#screenshot-1][Screenshot 1]]
+  - [[#screenshot-2][Screenshot 2]]
+- [[#credits][Credits]]
+
+* Introduction 
+A simple to-do list made with React as frontend and Django as backend
+Django is a Python web framework that simplifies common practices in web development. Django is reliable and also has a vibrant ecosystem of stable libraries supporting common development needs.
+
+For this application, React serves as the frontend, or client-side framework, handling the user interface and getting and setting data via requests to the Django backend, which is an API built using the Django REST framework (DRF).
+
+* Backend
+-  As mentioned the backend is managed by django.
+-  has an app called todo, and another dir by the name backend which has the main configuration
+** backend 
+  + settings.py: which contains the settings for django
+  + urls.py: used to delare urls and paths for the pages
+  + wsgi.py: WSGI stands for Web Server Gateway Interface, it describes the way how servers interact with the applications.
+  + asgi.py: ASGI works similar to WSGI but comes with some additional functionality.  ASGI stands for Asynchronous Server Gateway Interface. It is now replacing its predecessor WSGI.
+** Todo
+  + admin.py: It is used to display the Django model in the Django admin panel. It performs three major tasks:
+  + Apps.py is a file that is used to help the user include the application configuration for their app.
+  + models.py: Models.py represents the models of web applications in the form of classes. It is considered the most important aspect of the App file structure.
+  + views.py: Views are also an important part when we talk about the Django app structure. Views provide an interface through which a user interacts with a Django web application. It contains all the views in the form of classes.
+  + serializers: You will need serializers to convert model instances to JSON so that the frontend can work with the received data.
+
+* Frontend
+React is a JavaScript framework for developing SPAs (single-page applications). It has solid documentation and a vibrant ecosystem around it.
+For the frontend we have used axios to communicate with django
+Axios is an HTTP client library that allows you to make requests to a given endpoint:
+
+* Docker
+To make our builds reproducable we have used docker to containerize the project so we can easily deploy our project on something like okteto
+You can also simply run the project with ~docker-compose up -d~ (just make sure to change the okteto address to localhost instead in ./frontend/src/proxySetupp.js )
+
+* Okteto
+Okteto is a simple and easy to use deployment environment which we have used in our project
+
+* Screenshots
+** Screenshot 1
+#+ATTR_ORG: :width 500
+#+attr_html: :width 1000px
+[[./ss/1.png]]
+
+** Screenshot 2
+#+ATTR_ORG: :width 500px 
+#+attr_html: :width 500px
+[[./ss/2.png]]
+
+
+* Credits 
+https://www.digitalocean.com/community/tutorials/build-a-to-do-application-using-django-and-react
